@@ -1,0 +1,28 @@
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+env/
+venv/
+.env
+.venv
+*.venv/
+env.bak/
+venv.bak/
+
+# Project Directories (ignore contents, preserve directories)
+data/*
+!data/.gitkeep
+
+adapters/*
+!adapters/.gitkeep
+
+models/*
+!models/.gitkeep
+
+# macOS
+.DS_Store

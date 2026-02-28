@@ -1,0 +1,36 @@
+# The path to the local model directory or Hugging Face repo.
+model: "mlx-community/Meta-Llama-3-8B-Instruct-4bit"
+
+# Path to directory with {train, valid, test}.jsonl files
+data: "data/"
+
+# Target adapter path
+adapter_path: "adapters/"
+
+# The number of layers to fine-tune
+lora_layers: 16
+
+# Minibatch size
+batch_size: 4
+
+# Iterations to train for
+iters: 1000
+
+# Save adapter weights every N iterations
+save_every: 100
+
+# Evaluate on the validation set every N iterations
+eval_every: 100
+
+# Optimizer parameters
+learning_rate: 1e-5
+
+# Number of warmup steps
+warmup: 100
+
+# LoRA hyperparameters
+lora_parameters:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  scale: 10.0
