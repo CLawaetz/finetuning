@@ -1,7 +1,7 @@
 .PHONY: train eval test generate fuse install
 
 # Default variables (can be overridden from CLI)
-MODEL ?= "mlx-community/Meta-Llama-3-8B-Instruct-4bit"
+MODEL ?= "mlx-community/LFM2-8B-A1B-4bit"
 ADAPTER_PATH ?= "adapters/"
 DATA_PATH ?= "data/"
 CONFIG ?= "configs/lora_config.yaml"
@@ -12,11 +12,11 @@ install:
 
 # Run finetuning with configuration file
 train:
-	python -m mlx_lm.lora --config $(CONFIG)
+	python -m mlx_lm lora --config $(CONFIG) --train
 
 # Example to override the model and data path from command line directly
 train-cli:
-	python -m mlx_lm.lora \
+	python -m mlx_lm lora \
 		--model $(MODEL) \
 		--data $(DATA_PATH) \
 		--train \
@@ -27,14 +27,14 @@ train-cli:
 
 # Evaluate the model against the validation set
 eval:
-	python -m mlx_lm.lora \
+	python -m mlx_lm lora \
 		--model $(MODEL) \
 		--adapter-path $(ADAPTER_PATH) \
 		--data $(DATA_PATH)
 
 # Test the finetuned model against test.jsonl
 test:
-	python -m mlx_lm.lora \
+	python -m mlx_lm lora \
 		--model $(MODEL) \
 		--adapter-path $(ADAPTER_PATH) \
 		--data $(DATA_PATH) \

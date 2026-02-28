@@ -1,5 +1,5 @@
 # The path to the local model directory or Hugging Face repo.
-model: "mlx-community/Meta-Llama-3-8B-Instruct-4bit"
+model: "mlx-community/LFM2-8B-A1B-4bit"
 
 # Path to directory with {train, valid, test}.jsonl files
 data: "data/"
