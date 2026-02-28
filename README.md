@@ -78,3 +78,15 @@ Once satisfied, fuse the LoRA adapters back into the base model to create a stan
 make fuse
 ```
 The fused model defaults to saving in `models/fused-model`.
+
+### 6. Serving the Model (API)
+Because this is a 4-bit MLX model, it runs blazingly fast natively on your Mac but cannot be easily converted to a generic GGUF file for Ollama.
+
+Instead, `mlx-lm` has a built-in server that perfectly mimics the OpenAI API format (just like Ollama!). 
+To serve your custom D&D model directly to your other applications, run:
+```bash
+make serve
+```
+
+Your other program can now connect to your fine-tuned model instantly at:
+`http://localhost:8080/v1/chat/completions`

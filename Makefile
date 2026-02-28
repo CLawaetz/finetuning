@@ -51,7 +51,13 @@ generate:
 
 # Fuse the LoRA adapter into the base model and save to models/
 fuse:
-	python -m mlx_lm.fuse \
+	.venv/bin/python -m mlx_lm fuse \
 		--model $(MODEL) \
 		--adapter-path $(ADAPTER_PATH) \
 		--save-path models/fused-model
+
+# Serve the fused MLX model as an OpenAI-compatible local API for other programs
+serve:
+	.venv/bin/python -m mlx_lm server \
+		--model models/fused-model \
+		--port 8080

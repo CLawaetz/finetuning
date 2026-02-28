@@ -26,3 +26,4 @@ models/*
 
 # macOS
 .DS_Store
+fused_model/
