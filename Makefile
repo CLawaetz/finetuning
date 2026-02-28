@@ -30,7 +30,9 @@ eval:
 	python -m mlx_lm lora \
 		--model $(MODEL) \
 		--adapter-path $(ADAPTER_PATH) \
-		--data $(DATA_PATH)
+		--data $(DATA_PATH) \
+		--test \
+		--iters 0
 
 # Test the finetuned model against test.jsonl
 test:
