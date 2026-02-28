@@ -49,10 +49,27 @@ To evaluate your current adapter on the validation set:
 make eval
 ```
 
-### 4. Generation / Chat
-Test the adapter interactively by running:
+### 4. Generation / Chat (Testing the Roleplay)
+I have created a custom script specifically for testing your D&D conversational agents.
+
+**To test your Fine-Tuned Model (uses `adapters/`):**
 ```bash
-make generate PROMPT="Why is the sky blue?"
+python scripts/run_generation.py --situation "The king demands you kneel."
+```
+
+**To test the Original Base Model (ignores `adapters/` for comparison):**
+```bash
+python scripts/run_generation.py --adapter-path "" --situation "The king demands you kneel."
+```
+
+You can also test brand new character combinations on the fly:
+```bash
+python scripts/run_generation.py \
+    --name "Orik" \
+    --race "Dwarf" \
+    --char-class "Cleric" \
+    --trait "drunk, constantly complaining about his knees" \
+    --situation "A shadow demon erupts from the ancient tome!"
 ```
 
 ### 5. Fusing the Model
